@@ -1,0 +1,26 @@
+<aura:component>
+    <aura:attribute name="totalPrice" type="Decimal"/>
+    <aura:attribute name="basket" type="Item__c[]"/>
+
+    <lightning:overlayLibrary aura:id="overlayLib2"/>
+    <aura:iteration items="{!v.basket}" var="item">
+        <tr>
+            <th>Name Product</th>
+            <td>{! item.Name__c}</td>
+        </tr>
+        <tr>
+            <th>Product Price</th>
+            <td>{! item.Price__c}</td>
+        </tr>
+    </aura:iteration>
+    <th>Total Price</th>
+    <tr>{! v.totalPrice}</tr>
+
+    <lightning:button
+            variant="success"
+            value="{!item}"
+            label="Buy"
+            title="Success"
+            onclick="{!c.handleClick}"/>
+
+</aura:component>

@@ -1,0 +1,20 @@
+/**
+ * Created by dawid.sobolewski on 21.12.2018.
+ */
+.THIS {
+}
+
+.THIS .product-image{
+    width:100px;
+    height:100px;
+}
+
+.THIS .text-bold{
+    font-weight:bold;
+    font-stretch: expanded;
+    font-size: large;
+
+}
+.THIS .my-background-color{
+    background: darkgrey;
+}

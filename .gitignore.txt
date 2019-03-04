@@ -1,4 +1,0 @@
-*.cls-meta
-*.cmp-meta
-*.evt-meta
-*.idea

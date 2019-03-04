@@ -1,0 +1,60 @@
+<aura:component>
+    <aura:attribute name="view" type="Map" default="{flag: false}"/>
+    <aura:attribute name="category" type="String"/>
+    <aura:attribute name="items" type="Item__c[]"/>
+    <aura:attribute name="price" type="Decimal"/>
+    <aura:attribute name="filtered" type="Item__c[]"/>
+
+    <lightning:select
+            aura:id="select"
+            name="select"
+            label="REQUIRED"
+            onchange="{!c.onChange}"
+            messageWhenValueMissing="Please, select category"
+            required="true">
+
+        <option value="">Choose category</option>
+        <option value="Sneakers">Sneakers</option>
+        <option value="SportShoes">SportShoes</option>
+        <option value="High Heals">High Heals</option>
+    </lightning:select>
+    <lightning:button variant="brand" label="SEARCH" title="Brand action" onclick="{!c.handleClick }"/>
+
+    <aura:if isTrue="{! v.view.flag}">
+    <div>
+        <div class="slds-grid slds-wrap my-background-color">
+            <aura:iteration items="{!v.filtered}" var="item">
+                <div class="slds-size--1-of-2">
+                    <div class="slds-box slds-theme--shade slds-m-around--small">
+                        <div>
+                            <span class="text-bold">Name:</span>  {!item.Name__c}
+                        </div>
+                        <div>
+                            <span class="text-bold">Category:</span> {!item.Category__c}
+                        </div>
+                        <div>
+                            <span class="text-bold">Price:</span> {!item.Price__c}
+                        </div>
+                        <div>
+                            <span class="text-bold">Description:</span> {!item.Description__c}
+                        </div>
+                        <div>
+                            <img class="product-image" alt="Sneakers image" src="{! item.Image__c}"/>
+                        </div>
+                        <div class="slds-align-bottom">
+                            <lightning:button
+                                    variant="success"
+                                    value="{!item}"
+                                    label="Buy"
+                                    title="Success"
+                                    onclick="{!c.handleClick}"
+                                    class="slds-size--1-of-4"/>
+                        </div>
+                    </div>
+                </div>
+            </aura:iteration>
+        </div>
+    </div>
+    </aura:if>
+
+</aura:component>

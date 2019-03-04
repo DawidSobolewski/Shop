@@ -1,0 +1,39 @@
+<aura:component>
+    <aura:attribute name="items" type="Item__c[]"/>
+    <aura:attribute name="item" type="Item__c"/>
+
+    <lightning:overlayLibrary aura:id="overlayLibrary"/>
+    <aura:registerEvent name="sendProduct" type="c:basketEvent"/>
+
+    <table>
+        <tr>
+            <th>Name Product</th>
+            <td>{! v.item.Name__c}</td>
+        </tr>
+        <tr>
+            <th>Product Category</th>
+        <tr>{! v.item.Category__c}</tr>
+        </tr>
+        <tr>
+            <th>Product Description</th>
+            <td>{! v.item.Description__c}</td>
+        </tr>
+        <tr>
+            <th>Product Price</th>
+            <td>{! v.item.Price__c}</td>
+        </tr>
+    </table>
+    <lightning:button
+            aura:id="cancel"
+            variant="destructive"
+            label="Cancel"
+            title="Cancel"
+            onclick="{! c.handleCancelClick}"/>
+    <lightning:button
+            aura:id="add"
+            variant="success"
+            label="Basket"
+            title="add to Basket"
+            onclick="{! c.handleAddClick}"/>
+
+</aura:component>

@@ -1,0 +1,24 @@
+<!--
+ - Created by dawid.sobolewski on 20.12.2018.
+ -->
+
+<aura:component controller="ApexController">
+
+    <aura:attribute name="basket" type="Item__c[]"/>
+    <aura:attribute name="FirstName" type="String"/>
+    <aura:attribute name="LastName" type="String"/>
+    <aura:attribute name="Email" type="String"/>
+
+    <lightning:overlayLibrary aura:id="overlayLib3"/>
+
+
+    <lightning:input type="text" label="First Name" required="true" value="{! v.FirstName}"/>
+    <lightning:input type="text" label="Last Name" required="true" value="{! v.LastName}" />
+    <lightning:input type="email" label="Email" required="true" value="{! v.Email}" />
+
+    <lightning:button
+            variant="brand"
+            label="Confirm"
+            onclick="{!c.handleClick}"/>
+
+</aura:component>
